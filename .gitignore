@@ -4,6 +4,7 @@ bjam
 bootstrap.log
 project-config.jam
 stage/
+stage-*/
 tools/build/src/engine/bin.linuxx86/
 tools/build/src/engine/bootstrap/
 *.swp
