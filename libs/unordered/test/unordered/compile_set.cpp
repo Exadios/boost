@@ -23,13 +23,13 @@ template class boost::unordered_set<
     std::equal_to<int>,
     test::minimal::allocator<int> >;
 template class boost::unordered_multiset<
-    int,
+    int const,
     boost::hash<int>,
     std::equal_to<int>,
     test::minimal::allocator<int> >;
 
 template class boost::unordered_set<
-    test::minimal::assignable,
+    test::minimal::assignable const,
     test::minimal::hash<test::minimal::assignable>,
     test::minimal::equal_to<test::minimal::assignable>,
     test::minimal::allocator<test::minimal::assignable> >;
@@ -183,6 +183,7 @@ UNORDERED_AUTO_TEST(test2)
     unordered_unique_test(set, assignable);
     unordered_set_test(set, assignable);
     unordered_copyable_test(set, assignable, assignable, hash, equal_to);
+    unordered_set_member_test(set, assignable);
 
     std::cout<<"Test unordered_multiset.\n";
 
@@ -195,6 +196,7 @@ UNORDERED_AUTO_TEST(test2)
     unordered_equivalent_test(multiset, assignable);
     unordered_set_test(multiset, assignable);
     unordered_copyable_test(multiset, assignable, assignable, hash, equal_to);
+    unordered_set_member_test(multiset, assignable);
 }
 
 UNORDERED_AUTO_TEST(movable1_tests)

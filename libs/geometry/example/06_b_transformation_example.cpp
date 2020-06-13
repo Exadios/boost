@@ -24,10 +24,9 @@
 #include <boost/geometry/io/wkt/read.hpp>
 
 #if defined(HAVE_SVG)
-#  include <boost/geometry/io/svg/write_svg.hpp>
+#  include <boost/geometry/io/svg/write.hpp>
 #endif
 
-#include <boost/bind.hpp>
 #include <boost/random.hpp>
 #include <boost/range.hpp>
 #include <boost/shared_ptr.hpp>

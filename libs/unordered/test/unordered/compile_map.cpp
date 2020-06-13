@@ -24,15 +24,15 @@ template class boost::unordered_map<
     std::equal_to<int>,
     test::minimal::allocator<std::pair<int const, int> > >;
 template class boost::unordered_multimap<
-    int,
-    int,
+    int const,
+    int const,
     boost::hash<int>,
     std::equal_to<int>,
     test::minimal::allocator<std::pair<int const, int> > >;
 
 template class boost::unordered_map<
-    test::minimal::assignable,
-    test::minimal::default_assignable,
+    test::minimal::assignable const,
+    test::minimal::default_assignable const,
     test::minimal::hash<test::minimal::assignable>,
     test::minimal::equal_to<test::minimal::assignable>,
     test::minimal::allocator<test::minimal::assignable> >;
@@ -202,6 +202,7 @@ UNORDERED_AUTO_TEST(test2)
     unordered_unique_test(map, map_value);
     unordered_map_test(map, assignable, assignable);
     unordered_copyable_test(map, assignable, map_value, hash, equal_to);
+    unordered_map_member_test(map, map_value);
 
     boost::unordered_map<
         test::minimal::assignable,
@@ -226,6 +227,7 @@ UNORDERED_AUTO_TEST(test2)
     unordered_equivalent_test(multimap, map_value);
     unordered_map_test(multimap, assignable, assignable);
     unordered_copyable_test(multimap, assignable, map_value, hash, equal_to);
+    unordered_map_member_test(multimap, map_value);
 }
 
 RUN_TESTS()

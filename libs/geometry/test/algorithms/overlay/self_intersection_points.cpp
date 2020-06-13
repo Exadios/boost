@@ -44,10 +44,10 @@
 
 template <typename Geometry>
 static void test_self_intersection_points(std::string const& case_id,
-            int expected_count,
+            std::size_t expected_count,
             Geometry const& geometry,
             bool check_has_intersections,
-            double precision = 0.001)
+            double /*precision*/ = 0.001)
 {
     typedef typename bg::point_type<Geometry>::type point_type;
     //typedef typename bg::rescale_policy_type<point_type>::type rescale_policy_type;
@@ -84,7 +84,7 @@ static void test_self_intersection_points(std::string const& case_id,
         x += bg::get<0>(turn.point);
         y += bg::get<1>(turn.point);
     }
-    int n = boost::size(turns);
+    std::size_t n = boost::size(turns);
     if (n > 0)
     {
         x /= n;
